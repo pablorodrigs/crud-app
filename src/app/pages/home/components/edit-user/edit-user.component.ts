@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.css']
 })
-export class AddUserComponent implements OnInit {
-  signupForm: FormGroup = this.formBuilder.group({
+export class EditUserComponent implements OnInit {
+  editForm: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     role: ['', Validators.required],
@@ -24,13 +24,15 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.signupForm.valid) {
-    
-      console.log("Novo usuário adicionado:");
-      console.log(this.signupForm.value);
-
+    if (this.editForm.valid) {
      
+      console.log("Usuário editado:");
+      console.log(this.editForm.value);
+
+    
       this.router.navigate(['/users']);
+    } else {
+     
     }
   }
 }

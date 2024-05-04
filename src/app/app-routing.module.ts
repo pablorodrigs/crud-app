@@ -7,13 +7,17 @@ import { WelcomeComponent } from './pages/home/components/welcome/welcome.compon
 import { TodoListComponent } from './pages/home/pages/todo-list/todo-list.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AddUserComponent } from './pages/home/components/add-user/add-user.component';
+import { EditUserComponent } from './pages/home/components/edit-user/edit-user.component';
+import { UserService } from './user.service';
+
 
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: 'full' },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
-  { path: "add-user", component: AddUserComponent }, // Adicione a rota para a página de adicionar usuário
+  { path: "add-user", component: AddUserComponent },
+  { path: "edit-user/:id", component: EditUserComponent }, 
   {
     path: "app", component: HomeComponent,
     children: [
@@ -22,7 +26,8 @@ const routes: Routes = [
       { path: "todo-list", component: TodoListComponent }
     ]
   }
-]
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
